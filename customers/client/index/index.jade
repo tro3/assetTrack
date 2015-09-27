@@ -11,6 +11,7 @@ template(name="CustomersIndex")
           tr
             th Name
             th Location
+            th Count
             th
         tbody
           each items
@@ -18,5 +19,6 @@ template(name="CustomersIndex")
               td 
                 a(href="/customers/{{_id}}") {{name}}
               td {{location}}
+              td {{units.length}}
               td
                 a.btn.btn-xs.btn-danger#del Delete

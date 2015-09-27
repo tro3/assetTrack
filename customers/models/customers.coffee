@@ -2,6 +2,7 @@
 @Customers = new Mongo.Collection 'customers',
   transform: (doc) ->
     if doc
+      doc.units = _.sortBy doc.units, 'serialNumber'
       doc.units.forEach (unit, ind) ->
         unit._id = ind+1
         unit.type = UnitTypes.findOne(unit.typeID)

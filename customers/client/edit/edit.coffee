@@ -47,4 +47,5 @@ AutoForm.hooks
       else
         parent.units.push inDoc
       save(parent)
+      Session.set 'selectedUnitId', null
       this.done()
