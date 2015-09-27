@@ -1,0 +1,36 @@
+
+template(name="customerBaseField")
+  +afQuickField(
+    name=field
+    template="bootstrap3-horizontal"
+    label-class="col-sm-1"
+    input-col-class="col-sm-2"
+  )
+
+
+template(name="unitBaseField")
+  +afQuickField(
+    name=field
+    template="bootstrap3-horizontal"
+    label-class="col-sm-4"
+    input-col-class="col-sm-8"
+  )
+
+
+template(name="unitTable")
+  .panel.panel-default
+    .panel-heading Units
+    table.table.table-hover
+      thead
+        tr
+          th Serial Number
+          th Unit Type
+          th Asset Type
+          th(style="text-align:right;margin-right:150px") Cost
+      tbody
+        each units
+          tr#selUnit
+            td {{serialNumber}}
+            td {{type.name}}
+            td {{type.assetType}}
+            td(style="text-align:right;margin-right:150px") {{formatAmount type.cost}}

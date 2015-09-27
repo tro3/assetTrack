@@ -1,0 +1,19 @@
+template(name="CustomersInsert")
+  .row
+    .col-md-12
+      h2 New Customer
+  
+      +autoForm(
+        collection="Customers"
+        id="insertCustomer"
+        type="insert"
+        class="form-horizontal"
+      )
+        +customerBaseField(field='name')
+        +customerBaseField(field='location')
+        .form-group
+          .col-sm-1
+          .col-sm-2
+            button.btn.btn-primary(type="submit") Submit
+            a.btn.btn-default(href="{{pathFor route='customers.index'}}") Cancel
+

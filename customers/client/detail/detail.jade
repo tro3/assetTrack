@@ -1,0 +1,22 @@
+template(name="CustomersDetail")
+  .row
+    .col-md-12
+      h2 Customer Detail - {{item.name}}
+      
+      +autoForm(
+        collection="Customers"
+        doc=item
+        id="detailCustomer"
+        type="readonly"
+        class="form-horizontal"
+      )
+        +customerBaseField(field='name')
+        +customerBaseField(field='location')
+        .form-group
+          .col-sm-1
+          .col-sm-2
+            a.btn.btn-default(href="{{pathFor route='customers.edit' data=docPath}}") Edit
+
+  .row(style="margin-top:30px")
+    .col-md-8
+      +unitTable(units=item.units)

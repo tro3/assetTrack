@@ -1,0 +1,9 @@
+template(name = "MainLayout")
+  .container
+    .row
+      h1 Asset Tracker
+      a(href="{{pathFor route='home'}}") Home
+      a(href="{{pathFor route='customers.index'}}") Customers
+      a(href="{{pathFor route='unitTypes.index'}}") Unit Types
+      
+    +yield

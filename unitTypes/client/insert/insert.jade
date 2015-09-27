@@ -1,0 +1,22 @@
+template(name="UnitTypesInsert")
+  .row
+    h2 New Unit Type
+
+    +autoForm(
+      collection="UnitTypes"
+      id="insertUnitType"
+      type="insert"
+      class="form-horizontal"
+    )
+      each afFieldNames
+        +afQuickField(
+          name=name
+          template="bootstrap3-horizontal"
+          label-class="col-sm-2"
+          input-col-class="col-sm-2"
+        )
+      .form-group
+        .col-sm-2
+        .col-sm-2
+          button.btn.btn-primary(type="submit") Submit
+          a.btn.btn-default(href="/unitTypes") Cancel

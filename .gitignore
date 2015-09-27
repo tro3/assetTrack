@@ -45,5 +45,6 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# Windows shortcuts
+# Windows shortcuts and batch files
 *.lnk
+*.bat
