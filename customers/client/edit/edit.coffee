@@ -5,7 +5,6 @@ getId = -> Session.get('selectedUnitId')
 
 Template.CustomersEdit.onCreated ->
   #console.log 'creating'
-  Session.set 'selectedUnitId', null
 
 Template.CustomersEdit.onRendered ->
   #console.log 'rendering'
@@ -23,9 +22,6 @@ Template.CustomersEdit.helpers
 
 
 Template.CustomersEdit.events
-  'click #selUnit': ->
-    Session.set('selectedUnitId', @_id)
-
   'click #unitDelete': ->
     id = getId()
     @item.units.splice(id-1,1)

@@ -29,7 +29,7 @@ template(name="unitTable")
           th(style="text-align:right;margin-right:150px") Cost
       tbody
         each units
-          tr#selUnit
+          tr#selUnit(class="{{rowClass _id}}")
             td {{serialNumber}}
             td {{type.name}}
             td {{type.assetType}}
