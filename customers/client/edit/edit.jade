@@ -20,26 +20,4 @@ template(name="CustomersEdit")
 
   .row(style="margin-top:30px")
     .col-md-8
-      +unitTable(units=item.units)
-
-    .col-md-4
-      +autoForm(
-        schema="Unit"
-        doc=selectedUnit
-        id="updateUnit"
-        type="normal"
-        class="form-horizontal"
-      )
-        +unitBaseField(field='serialNumber')
-        +unitBaseField(field='typeID')
-        .form-group
-          .col-sm-4
-          .col-sm-8
-            button.btn.btn-primary#unitUpdate(type="submit")
-              if selectedId
-                | Update
-              else
-                | Add
-            if selectedId
-              a.btn.btn-danger#unitDelete Delete
-            a.btn.btn-default#unitCancel Cancel
+      +unitTable(units=item.units root=item)

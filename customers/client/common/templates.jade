@@ -20,6 +20,10 @@ template(name="unitBaseField")
 template(name="unitTable")
   .panel.panel-default
     .panel-heading Units
+      .pull-right
+        button.btn.btn-default.btn-xs#newBtn New
+        button.btn.btn-default.btn-xs#editBtn(disabled="{{unselected}}") Edit
+        button.btn.btn-default.btn-xs#delBtn(disabled="{{unselected}}") Delete
     table.table.table-hover
       thead
         tr
@@ -34,3 +38,35 @@ template(name="unitTable")
             td {{type.name}}
             td {{type.assetType}}
             td(style="text-align:right;margin-right:150px") {{formatAmount type.cost}}
+
+
+template(name="unitModal")
+  .modal.fade#unitModal
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h4.modal-title
+            if selectedId
+              | Update
+            else
+              | Add
+            | Unit
+        .modal-body      
+          +autoForm(
+            schema="Unit"
+            doc=unit
+            id="updateUnitModal"
+            type="normal"
+            class="form-horizontal"
+          )
+            +unitBaseField(field='serialNumber')
+            +unitBaseField(field='typeID')
+            .form-group
+              .col-sm-4
+              .col-sm-8
+                button.btn.btn-primary#unitModalUpdate(type="submit")
+                  if selectedId
+                    | Update
+                  else
+                    | Add
+                a.btn.btn-default#unitModalCancel Cancel
